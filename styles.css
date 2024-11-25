@@ -1,47 +1,207 @@
-/* General styles for the form */
+/* style.css */
+
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf8f4;
+    color: #4e342e;
+    line-height: 1.8;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 600px;
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* Container */
+#welcome-screen,
+#survey-form {
+    max-width: 700px;
+    width: 90%;
+    background: #ffffff;
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e3dac9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#welcome-screen:hover,
+#survey-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
 h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #6d4c41;
     text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-form fieldset {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 1rem auto 0;
+    background: #d7ccc8;
+    border-radius: 2px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4e342e;
+    margin-bottom: 0.5rem;
 }
 
-button {
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border: 1px solid #e3dac9;
+    border-radius: 8px;
+    background-color: #f9f5f0;
+    color: #4e342e;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #a1887f;
+    box-shadow: 0 0 8px rgba(161, 136, 127, 0.4);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #795548;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #5d4037;
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(93, 64, 55, 0.2);
+}
+
+button:active,
+input[type="submit"]:active {
+    background-color: #4e342e;
+    transform: scale(0.98);
+    box-shadow: 0 4px 10px rgba(93, 64, 55, 0.2);
+}
+
+/* Optional Section (Hidden by Default) */
+#qualification-fields,
+#spouse-info,
+#study-info,
+#work-info,
+#unemployment-info,
+#leave-info {
+    display: none;
+}
+
+/* Progress Bar */
+#progress-container {
+    width: 100%;
+    margin: 1rem 0;
+    background-color: #e9e3df;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 0.7rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #8d6e63;
+    transition: width 0.4s ease;
+    border-radius: 8px;
+}
+
+#progress-message {
+    font-size: 0.9rem;
+    color: #a1887f;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Typography Adjustments */
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #8d6e63;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #survey-form,
+    #welcome-screen {
+        padding: 1.5rem;
+    }
+
+    button,
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="date"],
+    select {
+        font-size: 1rem;
+    }
 }
